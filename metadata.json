@@ -1,0 +1,6 @@
+{
+  "name": "Bio-Synth V.02",
+  "description": "A speculative bio-mechanical circuit board game with interactive components and real-time data propagation.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

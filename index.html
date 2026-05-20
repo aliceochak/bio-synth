@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bio-Synth Lab OS</title>
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body class="bg-[#151619] antialiased">
+    <div id="app" class="flex flex-col h-screen w-screen overflow-hidden select-none border-[12px] border-[#151619] relative">
+      <!-- Outer technical frame decorations -->
+      <div class="absolute top-0 left-0 w-full h-[2px] bg-white/5 z-[100] pointer-events-none"></div>
+      <div class="absolute top-4 left-4 text-[8px] text-white/20 font-mono z-[100] pointer-events-none tracking-widest">GRID_COORD B2_SYNTH</div>
+
+      <!-- Header -->
+      <header class="h-20 bg-[#151619] text-white flex items-center justify-between px-10 border-b-4 border-black flex-shrink-0 relative">
+        <div class="flex items-center gap-6">
+          <div id="logo" class="w-12 h-12 border-2 border-[#F27D26] flex items-center justify-center font-mono font-black text-2xl bg-[#F27D26]/10 shadow-[0_0_15px_rgba(242,125,38,0.2)]">B</div>
+          <div>
+            <h1 class="text-base tracking-tighter uppercase font-black leading-none mb-1">Bio-Synth Lab OS</h1>
+            <p id="system-status" class="text-[10px] text-[#26A69A] font-mono opacity-80 uppercase tracking-widest">
+              <span class="animate-pulse">●</span> LAB_CORE_ACTIVE // STABLE
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-10 items-center font-mono text-[10px]">
+          <div id="attribute-counters" class="flex gap-6 py-2 px-4 bg-black/40 border border-white/5 rounded-sm">
+            <!-- Populated by JS -->
+          </div>
+          <button id="export-gif" class="bg-[#E43D24] text-white px-6 py-3 border-b-4 border-black font-black hover:-translate-y-0.5 transition-all cursor-pointer active:border-b-0 active:translate-y-1 shadow-[0_5px_0_rgba(0,0,0,1)] uppercase text-[11px] tracking-tighter">
+            Export Simulation
+          </button>
+        </div>
+      </header>
+
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="supply-tray" class="w-[18%] bg-[#D8D7D4] p-6 flex flex-col gap-12 items-center overflow-y-auto scrollbar-hide shadow-inner">
+          <nav id="inventory" class="flex flex-col gap-12 items-center">
+            <!-- Populated by JS -->
+          </nav>
+        </aside>
+
+        <!-- Workspace -->
+        <main id="workspace" class="relative flex-1 overflow-hidden transition-colors duration-1000 bg-[#E6D5B8] shadow-inner">
+          <div class="absolute inset-0 opacity-[0.08] pointer-events-none bg-grid"></div>
+          <div class="absolute top-10 left-10 opacity-10 pointer-events-none">
+             <div class="text-[120px] font-black tracking-tighter leading-none select-none">OS_02</div>
+          </div>
+
+          <svg id="cable-layer" class="absolute inset-0 pointer-events-none w-full h-full"></svg>
+          <div id="fusion-overlay" class="absolute inset-0 pointer-events-none border-[20px] border-neonLime/10 mix-blend-overlay hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-neonLime/5 to-transparent animate-pulse"></div>
+          </div>
+          
+          <div id="component-layer" class="absolute inset-0"></div>
+        </main>
+      </div>
+
+      <!-- Footer -->
+      <footer class="h-10 bg-[#151619] text-white border-t border-white/10 flex items-center px-8 font-mono text-[9px] justify-between z-50">
+        <div class="flex gap-10 items-center opacity-70">
+          <div id="status-operational" class="flex gap-2 items-center">
+            <i data-lucide="activity" class="w-[10px] h-[10px] text-[#26A69A]"></i> <span>OPERATIONAL_OK</span>
+          </div>
+          <div id="status-load" class="flex gap-2 items-center">
+            <i data-lucide="zap" class="w-[10px] h-[10px] text-[#FFD700]"></i> <span>LOAD: 0%</span>
+          </div>
+          <div id="status-bandwidth" class="flex gap-2 items-center">
+            <i data-lucide="waves" class="w-[10px] h-[10px] text-[#4169E1]"></i> <span>BANDWIDTH: 0Kbps</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <button id="reset-bench" class="hover:text-[#F27D26] transition-colors flex items-center gap-2 cursor-pointer">
+            <i data-lucide="rotate-ccw" class="w-[10px] h-[10px]"></i> RESET_BENCH
+          </button>
+          <span class="opacity-20 font-black tracking-tighter">BIO-SYNTH_LAB_OS v0.4.0</span>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+
